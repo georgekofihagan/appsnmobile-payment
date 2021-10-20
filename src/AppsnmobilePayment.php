@@ -34,13 +34,13 @@ class AppsnmobilePayment
                 MomoTransaction::DEBIT
             );
 
-            if(!$this->requestWasSuccessful($response)) {
+            if (! $this->requestWasSuccessful($response)) {
                 $this->momoTransactionRepository->setFailed($response->body(), $transaction->id);
+
                 throw new AppsnmobileException($response->body());
             }
 
             $this->handleResponse($response, $transaction);
-
         } catch (QueryException | ConnectionException | Exception $ex) {
             throw new AppsnmobileException($ex->getMessage());
         }
@@ -48,9 +48,10 @@ class AppsnmobilePayment
 
     private function requestWasSuccessful($response)
     {
-        if(!$response->successful()||is_null($response->json())||!isset($response->json()['resp_code'])){
+        if (! $response->successful() || is_null($response->json()) || ! isset($response->json()['resp_code'])) {
             return false;
         }
+
         return true;
     }
 
@@ -71,7 +72,7 @@ class AppsnmobilePayment
         $status = $this->getFinalStatus($data);
 
         $transaction = $this->momoTransactionRepository->setCallbackStatus($data, $status, $transaction->id);
-        if($status == 'success') {
+        if ($status == 'success') {
             PaymentSucceeded::dispatch($transaction);
         }
         PaymentFailed::dispatch($transaction);
@@ -79,9 +80,10 @@ class AppsnmobilePayment
 
     private function getFinalStatus(array $data)
     {
-        if(substr($data['trans_status'], 0, 4)=="000/"){
+        if (substr($data['trans_status'], 0, 4) == "000/") {
             return "success";
         }
+
         return "failed";
     }
 
@@ -100,6 +102,7 @@ class AppsnmobilePayment
             PaymentPending::dispatch($transaction);
         } else {
             $this->momoTransactionRepository->setFailed($data['resp_desc'], $transaction->id);
+
             throw new AppsnmobileException($data['resp_desc']);
         }
     }

@@ -24,5 +24,4 @@ class AppsnmobilePaymentServiceProvider extends PackageServiceProvider
         $this->app->bind(IMomoTransactionRepository::class, MomoTransactionRepository::class);
         $this->app->bind('appsnmobile-payment', AppsnmobilePayment::class);
     }
-
 }

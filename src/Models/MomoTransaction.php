@@ -11,16 +11,16 @@ class MomoTransaction extends Model
 
     private $trans_type;
 
-    const VODAFONE="vodafone";
-    const MTN="mtn";
-    const AIRTELTIGO="airtel-tigo";
+    public const VODAFONE = "vodafone";
+    public const MTN = "mtn";
+    public const AIRTELTIGO = "airtel-tigo";
 
-    const CREDIT='credit';
-    const DEBIT='debit';
+    public const CREDIT = 'credit';
+    public const DEBIT = 'debit';
 
     protected $cast = [
         'meta_data' => 'array',
-        'completed' => 'bool'
+        'completed' => 'bool',
     ];
 
     protected $fillable = [
@@ -37,7 +37,7 @@ class MomoTransaction extends Model
         'callback_date',
         'callback_response',
         'callback_uuid',
-        'completed'
+        'completed',
     ];
 
     public function asDebit()
@@ -46,6 +46,7 @@ class MomoTransaction extends Model
             .str_pad($this->id, 9,"0",STR_PAD_LEFT);
 
         $this->transaction_type = $this::DEBIT;
+
         return $this;
     }
 
@@ -55,8 +56,7 @@ class MomoTransaction extends Model
             .str_pad($this->id, 9,"0",STR_PAD_LEFT);
 
         $this->transaction_type = $this::CREDIT;
+
         return $this;
     }
-
 }
-
