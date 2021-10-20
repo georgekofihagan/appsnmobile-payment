@@ -42,7 +42,7 @@ class MomoTransaction extends Model
 
     public function asDebit()
     {
-        $this->internal_trx_id=config("appsnmobile.debit_transaction_prefix")
+        $this->internal_trx_id=config("appsnmobile-payment.debit_transaction_prefix")
             .str_pad($this->id, 9,"0",STR_PAD_LEFT);
 
         $this->transaction_type = $this::DEBIT;
@@ -51,7 +51,7 @@ class MomoTransaction extends Model
 
     public function asCredit()
     {
-        $this->internal_trx_id=config("appsnmobile.credit_transaction_prefix")
+        $this->internal_trx_id=config("appsnmobile-payment.credit_transaction_prefix")
             .str_pad($this->id, 9,"0",STR_PAD_LEFT);
 
         $this->transaction_type = $this::CREDIT;
