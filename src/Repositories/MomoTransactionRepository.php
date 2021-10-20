@@ -2,7 +2,6 @@
 
 namespace Mobiverse\AppsnmobilePayment\Repositories;
 
-
 use Mobiverse\AppsnmobilePayment\Models\MomoTransaction;
 
 class MomoTransactionRepository implements IMomoTransactionRepository
@@ -24,6 +23,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
         $updatedModel = $this->model->where($this->model->getKeyName(), $id)->firstOrFail();
         $updatedModel->update($attributes);
         $updatedModel->save();
+
         return $updatedModel;
     }
 
@@ -32,6 +32,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
         $data['internal_trx_id'] = $data['transaction_id'];
         $data['reference'] = config("appsnmobile.purchase.balance.reference");
         $data['transaction_type'] = MomoTransaction::DEBIT;
+
         return $this->create($data);
     }
 
@@ -40,6 +41,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
         $data['internal_trx_id'] = $data['transaction_id'];
         $data['reference'] = config("appsnmobile.purchase.balance.reference");
         $data['transaction_type'] = MomoTransaction::CREDIT;
+
         return $this->create($data);
     }
 
@@ -47,7 +49,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
     {
         return $this->update($id, [
             'status' => 'pending',
-            'status_message' => substr($message, 0, 100)
+            'status_message' => substr($message, 0, 100),
         ]);
     }
 
@@ -55,7 +57,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
     {
         return $this->update($id, [
             'status' => 'failed',
-            'status_message' => substr($message, 0, 100)
+            'status_message' => substr($message, 0, 100),
         ]);
     }
 
@@ -72,8 +74,7 @@ class MomoTransactionRepository implements IMomoTransactionRepository
             'external_trx_id' => $data['trans_id'],
             'callback_date' => date('Y-m-d H:i:s'),
             'callback_response' => $data,
-            'completed' => true
+            'completed' => true,
         ]);
     }
-
 }

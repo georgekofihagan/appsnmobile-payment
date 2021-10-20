@@ -13,7 +13,7 @@ class ExecuteDebitRequestTest extends TestCase
     // other tests
 
     /** @test */
-    function a_momo_transaction_is_created_when_an_execute_debit_request_is_fired()
+    public function a_momo_transaction_is_created_when_an_execute_debit_request_is_fired()
     {
         AppsnmobilePaymentFacade::executeDebitRequest([
             'msisdn' => '0244377919',
@@ -24,4 +24,3 @@ class ExecuteDebitRequestTest extends TestCase
         ]);
     }
 }
-

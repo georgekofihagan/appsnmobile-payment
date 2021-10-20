@@ -2,8 +2,6 @@
 
 namespace Mobiverse\AppsnmobilePayment\Models;
 
-use Mobiverse\AppsnmobilePayment\Models\MomoTransaction;
-
 class AppsnmobilePaymentRequest
 {
     private MomoTransaction $momoTransaction;
@@ -29,10 +27,11 @@ class AppsnmobilePaymentRequest
     private function setNetwork(string $network)
     {
         $networks = [
-            MomoTransaction::VODAFONE=>'VOD',
-            MomoTransaction::MTN=>'MTN',
-            MomoTransaction::AIRTELTIGO=>'AIR'
+            MomoTransaction::VODAFONE => 'VOD',
+            MomoTransaction::MTN => 'MTN',
+            MomoTransaction::AIRTELTIGO => 'AIR',
         ];
+
         return $networks[$network];
     }
 
@@ -40,8 +39,9 @@ class AppsnmobilePaymentRequest
     {
         $trans_types = [
             MomoTransaction::CREDIT => 'CTM',
-            MomoTransaction::DEBIT => 'CTM'
+            MomoTransaction::DEBIT => 'CTM',
         ];
+
         return $trans_types[$trans_type];
     }
 }
