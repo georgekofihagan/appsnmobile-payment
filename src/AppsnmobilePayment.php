@@ -73,8 +73,9 @@ class AppsnmobilePayment implements IAppsnmobilePayment
         $transaction = $this->momoTransactionRepository->setCallbackStatus($data, $status, $transaction->id);
         if ($status == 'success') {
             PaymentSucceeded::dispatch($transaction);
+        } else {
+            PaymentFailed::dispatch($transaction);
         }
-        PaymentFailed::dispatch($transaction);
     }
 
     private function getFinalStatus(array $data)
