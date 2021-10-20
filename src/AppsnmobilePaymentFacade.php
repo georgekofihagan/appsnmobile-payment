@@ -11,6 +11,6 @@ class AppsnmobilePaymentFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'appsnmobile-payment';
+        return IAppsnmobilePayment::class;
     }
 }
