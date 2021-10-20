@@ -67,6 +67,14 @@ $momo_transaction = [
 
 \Mobiverse\AppsnmobilePayment\AppsnmobilePaymentFacade::executeDebitRequest($momo_transaction);
 ```
+In the controller of your callback url add the following action:
+```php
+public function debitCallback(IMomoPaymentService $momoPaymentService, Request $request){
+    $momoPaymentService->processDebitCallback($request->all());
+    return response();
+}
+```
+
 Implement listeners for the **PaymentSucceeded** and **PaymentFailed** events. eg.
 ```php
 PaymentSucceeded::class => [
