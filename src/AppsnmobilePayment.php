@@ -55,15 +55,14 @@ class AppsnmobilePayment
         return true;
     }
 
-    private function makeRequest($params, $transaction_type){
-
+    private function makeRequest($params, $transaction_type)
+    {
         $params['callback_url'] = config("appsnmobile-payment.{$transaction_type}_callback_url");
 
         return Http::timeout(60)->withoutVerifying()
             ->acceptJson()
             ->withBasicAuth(config('appsnmobile-payment.auth.basic.user'), config('appsnmobile-payment.auth.basic.pass'))
-            ->post(config('appsnmobile-payment.baseurl')."?endpoint=sendRequest",$params);
-
+            ->post(config('appsnmobile-payment.baseurl')."?endpoint=sendRequest", $params);
     }
 
     public function processDebitCallback(array $data)
