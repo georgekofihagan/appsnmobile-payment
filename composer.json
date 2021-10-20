@@ -1,24 +1,25 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "mobiverse/appsnmobile-payment",
+    "description": "This is a Laravel package for the Apps N Mobile payment service",
     "keywords": [
-        ":vendor_name",
+        "Mobiverse",
         "laravel",
-        ":package_slug"
+        "appsnmobile-payment"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/mobiverse/appsnmobile-payment",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "George Hagan",
+            "email": "george.hagan@mobivs.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.0",
-        "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.37"
+        "illuminate/contracts": "^8.37",
+        "ramsey/uuid": "^4.2",
+        "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.3",
@@ -30,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Mobiverse\\AppsnmobilePayment\\": "src",
+            "Mobiverse\\AppsnmobilePayment\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Mobiverse\\AppsnmobilePayment\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Mobiverse\\AppsnmobilePayment\\AppsnmobilePaymentServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "AppsnmobilePayment": "Mobiverse\\AppsnmobilePayment\\AppsnmobilePaymentFacade"
             }
         }
     },

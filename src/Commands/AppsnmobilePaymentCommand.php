@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Mobiverse\AppsnmobilePayment\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class AppsnmobilePaymentCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'appsnmobile-payment';
 
     public $description = 'My command';
 
