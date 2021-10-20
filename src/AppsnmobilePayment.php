@@ -15,7 +15,7 @@ use Mobiverse\AppsnmobilePayment\Models\AppsnmobilePaymentRequest;
 use Mobiverse\AppsnmobilePayment\Models\MomoTransaction;
 use Mobiverse\AppsnmobilePayment\Repositories\IMomoTransactionRepository;
 
-class AppsnmobilePayment
+class AppsnmobilePayment implements IAppsnmobilePayment
 {
     private IMomoTransactionRepository $momoTransactionRepository;
 
