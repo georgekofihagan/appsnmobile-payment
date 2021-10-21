@@ -69,7 +69,7 @@ $momo_transaction = [
 ```
 In the controller of your callback url add the following action:
 ```php
-public function debitCallback(IMomoPaymentService $momoPaymentService, Request $request){
+public function debitCallback(\Mobiverse\AppsnmobilePayment\IAppsnmobilePayment $momoPaymentService, Request $request){
     $momoPaymentService->processDebitCallback($request->all());
     return response();
 }
