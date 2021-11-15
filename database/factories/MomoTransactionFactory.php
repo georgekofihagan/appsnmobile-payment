@@ -22,7 +22,13 @@ class MomoTransactionFactory extends Factory
     public function definition()
     {
         return [
-
+            'msisdn' => '',
+            'network' => '',
+            'amount' => 20,
+            'transaction_type' => '',
+            'payment_request_id' => 0,
+            'internal_trx_id' => '',
+            'status' => '',
         ];
     }
 }

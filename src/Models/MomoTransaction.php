@@ -4,6 +4,7 @@ namespace Mobiverse\AppsnmobilePayment\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mobiverse\AppsnmobilePayment\Database\Factories\MomoTransactionFactory;
 
 class MomoTransaction extends Model
 {
@@ -58,5 +59,10 @@ class MomoTransaction extends Model
         $this->transaction_type = $this::CREDIT;
 
         return $this;
+    }
+
+    protected static function newFactory()
+    {
+        return new MomoTransactionFactory;
     }
 }
