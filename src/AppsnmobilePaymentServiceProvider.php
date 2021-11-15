@@ -18,7 +18,7 @@ class AppsnmobilePaymentServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('appsnmobile-payment')
-            ->hasConfigFile()
+            ->hasConfigFile('appsnmobile-payment')
             ->hasMigration('create_momo_transactions_table');
 
         $this->app->bind(IMomoTransactionRepository::class, MomoTransactionRepository::class);
