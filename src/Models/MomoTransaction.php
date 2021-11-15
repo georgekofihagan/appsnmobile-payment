@@ -63,6 +63,6 @@ class MomoTransaction extends Model
 
     protected static function newFactory()
     {
-        return new MomoTransactionFactory;
+        return new MomoTransactionFactory();
     }
 }
