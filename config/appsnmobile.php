@@ -12,10 +12,5 @@ return [
             'user'=>env('MOMO_BASICAUTH_USR',''),
             'pass'=>env('MOMO_BASICAUTH_PWD','')
         ]
-    ],
-    'purchase'=>[
-        'balance'=>[
-            'reference'=>env('MOMO_PURCHASE_BALANCE_REFERENCE','')
-        ]
     ]
 ];

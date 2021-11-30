@@ -4,6 +4,7 @@ namespace Mobiverse\AppsnmobilePayment\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mobiverse\AppsnmobilePayment\AppsnmobilePaymentFacade;
+use Mobiverse\AppsnmobilePayment\Models\MomoTransaction;
 use PHPUnit\Framework\TestCase;
 
 class ExecuteDebitRequestTest extends TestCase
@@ -17,10 +18,11 @@ class ExecuteDebitRequestTest extends TestCase
     {
         AppsnmobilePaymentFacade::executeDebitRequest([
             'msisdn' => '0244377919',
-            'network' => \Mobiverse\AppsnmobilePayment\Models\MomoTransaction::VODAFONE,
+            'network' => MomoTransaction::VODAFONE,
             'amount' => 0.10,
             'payment_request_id' => 1,
             'transaction_id' => 'AD001',
+            'reference' => 'mobi payment'
         ]);
     }
 }

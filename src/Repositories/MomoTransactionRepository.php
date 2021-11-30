@@ -30,7 +30,6 @@ class MomoTransactionRepository implements IMomoTransactionRepository
     public function createDebit(array $data): MomoTransaction
     {
         $data['internal_trx_id'] = $data['transaction_id'];
-        $data['reference'] = config("appsnmobile.purchase.balance.reference");
         $data['transaction_type'] = MomoTransaction::DEBIT;
 
         return $this->create($data);
@@ -39,7 +38,6 @@ class MomoTransactionRepository implements IMomoTransactionRepository
     public function createCredit(array $data): MomoTransaction
     {
         $data['internal_trx_id'] = $data['transaction_id'];
-        $data['reference'] = config("appsnmobile.purchase.balance.reference");
         $data['transaction_type'] = MomoTransaction::CREDIT;
 
         return $this->create($data);

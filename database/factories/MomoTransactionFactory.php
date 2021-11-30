@@ -29,6 +29,7 @@ class MomoTransactionFactory extends Factory
             'payment_request_id' => 0,
             'internal_trx_id' => '',
             'status' => '',
+            'reference' => ''
         ];
     }
 }
