@@ -17,7 +17,7 @@ class AppsnmobilePaymentRequest
             'customer_number' => $this->momoTransaction->msisdn,
             'nw' => $this->setNetwork($this->momoTransaction->network),
             'exttrid' => $this->momoTransaction->internal_trx_id,
-            'reference' => 'adowaa payment'.$this->momoTransaction->reference,
+            'reference' => $this->momoTransaction->reference,
             'trans_type' => $this->setTransType($this->momoTransaction->transaction_type),
             'ts' => date('Y-m-d H:i:s'),
             'amount' => $this->momoTransaction->amount,
