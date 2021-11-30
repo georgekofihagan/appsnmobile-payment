@@ -39,7 +39,7 @@ class MomoTransaction extends Model
         'callback_response',
         'callback_uuid',
         'completed',
-        'reference'
+        'reference',
     ];
 
     public function asDebit()
