@@ -22,7 +22,7 @@ class ExecuteDebitRequestTest extends TestCase
             'amount' => 0.10,
             'payment_request_id' => 1,
             'transaction_id' => 'AD001',
-            'reference' => 'mobi payment'
+            'reference' => 'mobi payment',
         ]);
     }
 }
