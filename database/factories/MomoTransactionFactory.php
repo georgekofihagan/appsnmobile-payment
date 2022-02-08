@@ -26,7 +26,6 @@ class MomoTransactionFactory extends Factory
             'network' => '',
             'amount' => 20,
             'transaction_type' => '',
-            'payment_request_id' => 0,
             'internal_trx_id' => '',
             'status' => '',
             'reference' => ''

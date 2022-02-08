@@ -29,7 +29,6 @@ class MomoTransaction extends Model
         'network',
         'amount',
         'transaction_type',
-        'payment_request_id',
         'meta_data',
         'internal_trx_id',
         'external_trx_id',
