@@ -75,13 +75,16 @@ public function debitCallback(\Mobiverse\AppsnmobilePayment\IAppsnmobilePayment 
 }
 ```
 
-Implement listeners for the **PaymentSucceeded** and **PaymentFailed** events. eg.
+Implement listeners for the **PaymentSucceeded**, **PaymentFailed** and **PaymentPending** events. eg.
 ```php
 PaymentSucceeded::class => [
     SendReceipt::class,
 ],
 PaymentFailed::class => [
     FailedPaymentNotification::class,
+],
+PaymentPending::class => [
+    PaymentPaymentNotification::class,
 ]
 ```
 
