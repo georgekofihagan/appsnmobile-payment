@@ -64,6 +64,11 @@ class MomoTransactionRepository implements IMomoTransactionRepository
         return $this->model->where('internal_trx_id', $internal_trx_id)->where('status', 'pending')->firstOrFail();
     }
 
+    public function getByTransactionId(string $internal_trx_id)
+    {
+        return $this->model->where('internal_trx_id', $internal_trx_id)->firstOrFail();
+    }
+
     public function setCallbackStatus(array $data, string $status, $id): MomoTransaction
     {
         return $this->update($id, [
