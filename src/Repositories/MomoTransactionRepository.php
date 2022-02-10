@@ -59,12 +59,12 @@ class MomoTransactionRepository implements IMomoTransactionRepository
         ]);
     }
 
-    public function getPendingByTransactionId(string $internal_trx_id)
+    public function getPendingByTransactionId(string $internal_trx_id): ?MomoTransaction
     {
         return $this->model->where('internal_trx_id', $internal_trx_id)->where('status', 'pending')->firstOrFail();
     }
 
-    public function getByTransactionId(string $internal_trx_id)
+    public function getByTransactionId(string $internal_trx_id): ?MomoTransaction
     {
         return $this->model->where('internal_trx_id', $internal_trx_id)->firstOrFail();
     }

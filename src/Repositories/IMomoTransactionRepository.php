@@ -14,7 +14,9 @@ interface IMomoTransactionRepository
 
     public function setFailed($message, $id);
 
-    public function getPendingByTransactionId(string $internal_trx_id);
+    public function getPendingByTransactionId(string $internal_trx_id): ?MomoTransaction;
 
     public function setCallbackStatus(array $data, string $status, $id): MomoTransaction;
+
+    public function getByTransactionId(string $internal_trx_id): ?MomoTransaction;
 }
